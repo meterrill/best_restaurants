@@ -27,14 +27,39 @@
       <h2>Best Restaurants</h2>
       <ul>
         <li ng-repeat="item in restaurants">
-        {{item.name}} <a ng-click="deleteRestaurant(item)">Delete!</a>
-        <!-- <ul>
-          <li>{{item.food}}</li>
-          <li>{{item.location}}</li>
-          <li>{{item.price}}</li>
-        </ul> -->
+          <span ng-click="showDetails = true">
+            {{item.name}} <a ng-click="showEditor = true">Edit</a> <a ng-click="deleteRestaurant(item)">Delete!</a>
+          </span>
+          <span ng-show = "showDetails" ng-click="showDetails = false">
+            <ul>
+              <li>{{item.food}}</li>
+              <li>{{item.location}}</li>
+              <li>{{item.price}}</li>
+            </ul>
+          </span>
+          <span ng-show="showEditor" ng-submit="showEditor = false">
+            <form>
+              <input type="text" ng-model="item.name">
+              <input type="text" ng-model="item.food">
+              <input type="text" ng-model="item.location">
+              <input type="text" ng-model="item.price">
+              <button type="submit" class="btn btn-xs btn-info">Change</button>
+            </form>
+          </span>
         </li>
       </ul>
     </div>
+
+    <!-- <div class="col-md-6">
+      <div class="well" ng-show="showEditor">
+        <ul>
+          <li>{{item.name}}</li>
+          <li>{{item.food}}</li>
+          <li>{{item.location}}</li>
+          <li>{{item.price}}</li>
+        </ul>
+      </div>
+
+    </div> -->
   </body>
 </html>
