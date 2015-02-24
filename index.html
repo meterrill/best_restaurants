@@ -57,8 +57,18 @@
 
         <div class="col-md-4" ng-show="restaurants.length">
           <h4>Search Restaurants</h4>
+
+
           <form class="form-inline">
-            <input ng-model="query" type="text">
+            <!-- <span ng-false-value=""> -->
+            <input ng-model="query.$" type="text" placeholder="General search">
+            <!-- </span>
+            Advanced Search:<input type="checkbox" ng-model="value1">
+            <span ng-show="advancedSearch" ng-switch-when="value1 = true"> -->
+              <input ng-model="query.name" type="text" placeholder="Search by name">
+              <input ng-model="query.food" type="text" placeholder="Search by type of food">
+              <input ng-model="query.location" type="text" placeholder="Search by location">
+            <!-- </span> -->
           </form>
 
         </div>
